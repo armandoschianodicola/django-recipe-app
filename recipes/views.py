@@ -1,19 +1,10 @@
 from django.shortcuts import render, HttpResponse
-
-# Create your views here
-recipes = [
-    {
-        'author': 'Armo',
-        'title': 'meatball',
-    },
-    {
-        'author': 'Carlo',
-        'title': 'spaghetti',
-    },
-]
+from . import models
 
 
 def home(request):
+
+    recipes = models.Recipe.objects.all()
     context = {
         'recipes': recipes,
     }

@@ -4,5 +4,6 @@
 {% for recipe in recipes %}
     <h1>{{recipe.title}}</h1>
     <p>{{recipe.author}}</p>
+    <p>{{recipe.updated_at|date:"d F, Y"}}</p>
 {% endfor %}
 {% endblock content %}
