@@ -1,0 +1,21 @@
+{% extends 'recipes/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+  <div>
+    <form method="POST">
+      {% csrf_token %}
+      <fieldset>
+        <legend>Add Recipe</legend>
+        {{ form|crispy }}
+      </fieldset>
+      <div>
+        <input type="submit" value="Save">
+      </div>
+    </form>
+    <div>
+      <a href="{% url 'recipes-home' %}">Cancel</a>
+    </div>
+  </div>
+{% endblock content %}
