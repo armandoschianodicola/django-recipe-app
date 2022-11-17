@@ -130,3 +130,6 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRIPSY_TEMPLATE_PACK = "bootstrap4"
+
+LOGIN_REDIRECT_URL = 'recipes-home'
+LOGIN_URL = 'user-login'
