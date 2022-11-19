@@ -3,5 +3,12 @@
 <h1>Recipe # {{object.id}} </h1>
 <h1>{{object.title}}</h1>
 <p>{{object.author}}</p>
+<p>{{object.description}}</p>
 <p>{{object.updated_at|date:"d F, Y"}}</p>
+<div>
+    {%if object.author == user or user.is_stagg %}
+    <a href="recipes-update">Update</a>
+    <a href="recipes-delete">Delete</a>
+    {% endif %}
+</div>
 {% endblock content %}
