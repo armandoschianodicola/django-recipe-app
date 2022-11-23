@@ -1,17 +1,21 @@
-{% extends 'recipes/base.html' %}
-
-{% block content %}
+{% extends 'recipes/base.html' %} {% block content %}
 <h1>Recipes Home</h1>
-<div class="recipe-list">
-    {% for recipe in recipes %}
-    <div class="card">
-        <div class="info">
-            <h4>{{recipe.title}}</h4>
-        </div>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  {% for recipe in recipes %}
+  <div class="card" style="width: 18rem">
+    <div class="card-header py-3 border-primary">
+        <h4 class="my-0">{{recipe.title}}</h4>
+      </div>
+    <div class="card-body">
+      <!-- <h6 class="card-subtitle mb-2 text-muted">{{recipe.author}}</h6> -->
+      <a class="btn btn-primary" href="{% url 'recipes-detail' recipe.pk %}"
+        >View Recipe</a
+      >
     </div>
-    <p>{{recipe.author}}</p>
-    <p>{{recipe.updated_at|date:"d F, Y"}}</p>
-    <a href="{% url 'recipes-detail' recipe.pk %}">View Recipe</a>
-    {% endfor %}
+    <div class="card-footer">
+        <small class="text-muted text-right">Created on {{recipe.created_at|date:"d F, Y"}}</small>
+      </div>
+  </div>
+  {% endfor %}
 </div>
 {% endblock content %}

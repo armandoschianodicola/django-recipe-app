@@ -1,14 +1,17 @@
 {% extends 'recipes/base.html' %}
 {% block content %}
 <h1>Recipe # {{object.id}} </h1>
-<h1>{{object.title}}</h1>
-<p>{{object.author}}</p>
-<p>{{object.description}}</p>
 <p>{{object.updated_at|date:"d F, Y"}}</p>
 <div>
     {%if object.author == user or user.is_stagg %}
-    <a href="recipes-update">Update</a>
-    <a href="recipes-delete">Delete</a>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{object.title}}</h5>
+            by <p class="card-text">{{object.author}}</p>
+            <a href="recipes-update">Update</a>
+            <a href="recipes-delete">Delete</a>
+        </div>
+    </div>
     {% endif %}
 </div>
 {% endblock content %}

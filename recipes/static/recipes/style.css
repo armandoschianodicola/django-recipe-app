@@ -1,9 +1,4 @@
-.recipe-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px 60px;
-}
-
-.info {
-   padding: 16px;
+html {
+    background: #FAF7F2;
+    font-family: 'Lato', sans-serif;
 }
