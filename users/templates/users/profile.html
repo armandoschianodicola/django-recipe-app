@@ -1,8 +1,15 @@
 {% extends 'recipes/base.html' %}
+{% load static %}
 
 {% block content %}
   <div>
     <h2>{{ user.username }}
     </h2>
+  </div>
+  <div>
+    <label class="switch">
+      <input type="checkbox">
+      <span class="slider round"></span>
+    </label>
   </div>
 {% endblock content %}
