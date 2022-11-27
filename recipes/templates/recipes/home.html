@@ -1,21 +1,59 @@
-{% extends 'recipes/base.html' %} {% block content %}
-<h1>Recipes Home</h1>
-<div class="row row-cols-1 row-cols-md-2 g-4">
-  {% for recipe in recipes %}
-  <div class="card" style="width: 18rem">
-    <div class="card-header py-3 border-primary">
+{% extends 'registration/base.html' %} {% block content %}
+<header>
+  <img class="logo" src="" alt="logo" />
+  <nav>
+    <ul class="nav-links">
+      <li><a href="{% url 'recipes-create' %}">add a Recipe</a></li>
+      <li><a href="{% url 'recipes-about' %}">About</a></li>
+      <li><a href="{% url 'user-profile' %}">Profile</a></li>
+    </ul>
+  </nav>
+  <a href="#" class="cta"><button>Contact</button></a>
+</header>
+
+<!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar-nav">
+        {% if user.is_authenticated %}
+        <a href="{% url 'user-profile' %}">My Profile</a>
+        <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'user-register' %}">Register</a>
+        {% endif %}
+    </div>
+</div> -->
+<div>
+  {% if messages %} {% for message in messages %}
+  <div class="alert alert-{{ message.tags}}">{{message}}</div>
+  {% endfor %} {% endif %}
+  <h1>Recipes Home</h1>
+
+  {% if user.is_authenticated %} Hi {{ user.username }}!
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+  {% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a>
+  {% endif %}
+
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for recipe in recipes %}
+    <div class="card" style="width: 18rem">
+      <div class="card-header py-3 border-primary">
         <h4 class="my-0">{{recipe.title}}</h4>
       </div>
-    <div class="card-body">
-      <!-- <h6 class="card-subtitle mb-2 text-muted">{{recipe.author}}</h6> -->
-      <a class="btn btn-primary" href="{% url 'recipes-detail' recipe.pk %}"
-        >View Recipe</a
-      >
-    </div>
-    <div class="card-footer">
-        <small class="text-muted text-right">Created on {{recipe.created_at|date:"d F, Y"}}</small>
+      <div class="card-body">
+        <!-- <h6 class="card-subtitle mb-2 text-muted">{{recipe.author}}</h6> -->
+        <a class="btn btn-primary" href="{% url 'recipes-detail' recipe.pk %}"
+          >View Recipe</a
+        >
       </div>
+      <div class="card-footer">
+        <small class="text-muted text-right"
+          >Created on {{recipe.created_at|date:"d F, Y"}}</small
+        >
+      </div>
+    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
 </div>
 {% endblock content %}

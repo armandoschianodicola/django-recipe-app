@@ -1,6 +1,6 @@
 {% extends 'recipes/base.html' %} {% block content %}
 <div class="login-card">
-  <h2>Login</h2>
+  <h2>Login!!</h2>
   <h3>Enter your credentials</h3>
   <form class="login-form" method="POST">
     {% csrf_token %}
@@ -24,7 +24,7 @@
         onclick="togglePassword(this)"
       ></button>
     </div>
-    <button class="control" type="button">LOGIN</button>
+    <button class="control" type="submit">LOGIN</button>
   </form>
   <div class="login-register">
     Don't have an account?  <a href="{% url 'user-register' %}">Register here</a>
