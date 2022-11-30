@@ -1,41 +1,49 @@
 {% extends 'registration/base.html' %} {% block content %}
 
-<div class="login-card">
-    <h2>Login!</h2>
+<div class="login-container">
+  <div class="login-card">
+    <h2>Login</h2>
     <h3>Enter your credentials</h3>
     <form class="login-form" method="post">
-        {% csrf_token %}
-        {% for field in form %}
-        <div class="input-group">
-            <input class="control" id="{{ field.id_for_label }}" name="{{ field.html_name }}"
-                   value="{{ field.value }}" type="text"/>
-            {{ field.errors }}
+      {% csrf_token %}
+      <!--    <input-->
+      <!--      spellcheck="false"-->
+      <!--      class="control"-->
+      <!--      type="text"-->
+      <!--      placeholder="Username"-->
+      <!--    />-->
+      <!--        <div>-->
+      <!--            <input-->
+      <!--                    spellcheck="false"-->
+      <!--                    class="control"-->
+      <!--                    type="text"-->
+      <!--                    placeholder="Username"-->
+      <!--                    value="{{ field.username.value }}"-->
+      <!--            />-->
+      <!--        </div>-->
+      <div class="control">
+        {{ form.username }}
+        <span></span>
+        <label for="{{ form.username.id_for_label }}">Username</label>
+      </div>
+      <div class="password">
+        <div class="control">
+          {{ form.password }}
+          <span></span>
+          <label for="{{ form.password.id_for_label }}">Password</label>
         </div>
-        {% endfor %}<!--    <input-->
-        <!--      spellcheck="false"-->
-        <!--      class="control"-->
-        <!--      type="text"-->
-        <!--      placeholder="Username"-->
-        <!--    />-->
-        <!--    <div class="password">-->
-        <!--      <input-->
-        <!--        spellcheck="false"-->
-        <!--        class="control"-->
-        <!--        id="password"-->
-        <!--        type="password"-->
-        <!--        placeholder="Password"-->
-        <!--      />-->
-        <!--      <button-->
-        <!--        class="toggle"-->
-        <!--        type="button"-->
-        <!--        onclick="togglePassword(this)"-->
-        <!--      ></button>-->
-        <!--    </div>-->
-        <button class="control" type="submit">LOGIN</button>
+        <!--            <button-->
+        <!--                    class="toggle"-->
+        <!--                    type="button"-->
+        <!--                    onclick="togglePassword(this)"-->
+        <!--            ></button>-->
+      </div>
+      <button class="control" type="submit">LOGIN</button>
     </form>
     <div class="login-register">
-        Don't have an account?
-        <a href="{% url 'user-register' %}">Register here!</a>
+      Don't have an account?
+      <a href="{% url 'user-register' %}">Register here!</a>
     </div>
+  </div>
 </div>
 {% endblock content %}

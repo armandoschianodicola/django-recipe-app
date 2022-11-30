@@ -6,8 +6,6 @@ from django.contrib.auth.views import LoginView
 from . import forms
 
 
-
-
 def register(request):
 
     if request.method == 'POST':
