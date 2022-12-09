@@ -1,0 +1,49 @@
+{% extends 'registration/base.html' %} {% block content %}
+
+<form method="post">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      placeholder="Enter email"
+    />
+    <small id="emailHelp" class="form-text text-muted"
+      >We'll never share your email with anyone else.</small
+    >
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="exampleInputPassword1"
+      placeholder="Password"
+    />
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  {% comment %}
+  <div class="form-group">
+    {{ form.username }}
+    <span></span>
+    <label for="{{ form.username.id_for_label }}">Username</label>
+  </div>
+  <div class="form-group">
+    {{ form.password }}
+    <span></span>
+    <label for="{{ form.password.id_for_label }}">Password</label>
+  </div>
+  <button class="btn btn-primary" type="submit">LOGIN</button>
+</form>
+<div class="login-register">
+  Don't have an account?
+  <a href="{% url 'user-register' %}">Register here!</a>
+</div>
+{% endcomment %} {% endblock content %}

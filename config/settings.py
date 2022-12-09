@@ -59,7 +59,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -132,4 +132,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRIPSY_TEMPLATE_PACK = "bootstrap4"
 
 LOGIN_REDIRECT_URL = 'recipes-home'
-LOGIN_URL = 'user-login'
+LOGIN_URL = 'login'
