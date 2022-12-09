@@ -52,10 +52,10 @@
               <i><span></span>Servings</i>
             </li>
           </ul>
-          <small class="">Created on {{recipe.created_at|date:"d F, Y"}}</small>
+          {% comment %} <small class="">Created on {{recipe.created_at|date:"d F, Y"}}</small> {% endcomment %}
         </div>
-        <div class="">
-          <a class="" href="{% url 'recipes-detail' recipe.pk %}"
+        <div class="card-footer">
+          <a class="btn" href="{% url 'recipes-detail' recipe.pk %}"
             >View Recipe</a
           >
         </div>

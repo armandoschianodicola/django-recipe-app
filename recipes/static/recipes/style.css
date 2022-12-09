@@ -23,7 +23,7 @@ body {
     background-color: #e6ebf4;
 }
 
-/* navbar */
+/* || navbar */
 
 header {
     display: flex;
@@ -53,7 +53,7 @@ header {
     color: #0088a9;
 }
 
-/* login */
+/* || login */
 
 button {
     background: transparent;
@@ -204,7 +204,7 @@ button {
     background-image: url("hide.svg");
 }
 
-/* home */
+/* || home */
 
 .item-list {
     display: grid;
@@ -241,6 +241,24 @@ button {
 }
 
 .card-info ul li i{
-    color: grey;
+    background-color: #f3f5f7;
+    color: #130f25;
+    padding: 0.75rem;
+    border-radius: 8px;
+}
+
+.card-footer {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.btn {
+    background: #ff9400;
+    padding: 0.5rem;
+    border-radius: 14px;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    margin: auto;
 }
 
