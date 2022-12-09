@@ -1,21 +1,32 @@
-{% extends 'recipes/base.html' %} {% block content %}
-<h1>Recipes Home</h1>
-<div class="row row-cols-1 row-cols-md-2 g-4">
-  {% for recipe in recipes %}
-  <div class="card" style="width: 18rem">
-    <div class="card-header py-3 border-primary">
-        <h4 class="my-0">{{recipe.title}}</h4>
+{% extends 'recipes/navbar.html' %} {% block recipes %}
+
+<div>
+  {% if messages %} {% for message in messages %}
+  <div class="alert alert-{{ message.tags}}">{{message}}</div>
+  {% endfor %} {% endif %}
+  <h1>Recipes Home</h1>
+
+  {% if user.is_authenticated %} Hi {{ user.username }}!
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+  {% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a>
+  {% endif %}
+
+  <div class="container">
+    <div class="row">
+      {% for recipe in recipes %}
+      <div class="card m-2" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">{{recipe.title}}</h5>
+            <a class="btn btn-primary" href="{% url 'recipes-detail' recipe.pk %}"
+              >View Recipe</a
+            >
+        </div>
       </div>
-    <div class="card-body">
-      <!-- <h6 class="card-subtitle mb-2 text-muted">{{recipe.author}}</h6> -->
-      <a class="btn btn-primary" href="{% url 'recipes-detail' recipe.pk %}"
-        >View Recipe</a
-      >
+      {% endfor %}
     </div>
-    <div class="card-footer">
-        <small class="text-muted text-right">Created on {{recipe.created_at|date:"d F, Y"}}</small>
-      </div>
   </div>
-  {% endfor %}
 </div>
-{% endblock content %}
+
+{% endblock recipes %}

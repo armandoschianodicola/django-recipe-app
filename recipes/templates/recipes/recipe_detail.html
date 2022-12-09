@@ -1,5 +1,5 @@
-{% extends 'recipes/base.html' %}
-{% block content %}
+{% extends 'recipes/navbar.html' %}
+{% block recipe-detail %}
 <h1>Recipe # {{object.id}} </h1>
 <p>{{object.updated_at|date:"d F, Y"}}</p>
 <div>
@@ -14,4 +14,4 @@
     </div>
     {% endif %}
 </div>
-{% endblock content %}
+{% endblock recipe-detail %}
