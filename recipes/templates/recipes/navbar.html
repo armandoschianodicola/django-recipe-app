@@ -47,6 +47,14 @@
           </div>
         </li>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        {% if request.user.is_authenticated %}
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'login' %}">Login</a></li>
+        <li><a href="">Register</a></li>
+        {% endif %}
+      </ul>
     </div>
     <form class="form-inline my-2 my-lg-0">
       <input
@@ -60,7 +68,7 @@
     </form>
   </nav>
 
-  {% comment %} <div>
+  <!-- {% comment %} <div>
     {% if messages %} {% for message in messages %}
     <div class="alert alert-{{ message.tags}}">{{message}}</div>
     {% endfor %} {% endif %} {% block content %} {% endblock content %}
@@ -73,7 +81,7 @@
       <li><a href="{% url 'user-profile' %}">Profile</a></li>
     </ul>
   </nav>
-  <a href="#" class="cta"><button>Contact</button></a> {% endcomment %}
+  <a href="#" class="cta"><button>Contact</button></a> {% endcomment %} -->
 </header>
 
 <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -90,5 +98,6 @@
 {% block recipes %} {% endblock recipes %}
 {% block recipe-detail %} {% endblock recipe-detail %}
 {% block about %} {% endblock about %}
+{% block profile %} {% endblock profile %}
 
 {% endblock content %}
