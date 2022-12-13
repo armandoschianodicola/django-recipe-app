@@ -2,20 +2,18 @@
 {% load crispy_forms_tags %}
 
 
-{% block content %}
-  <div>
-    <form method="POST">
+{% block recipe-create %}
+  <div class="container mt-3">
+    <form method="POST" class="card p-3 mt-5">
       {% csrf_token %}
       <fieldset>
         <legend>Add Recipe</legend>
         {{ form|crispy }}
       </fieldset>
-      <div>
-        <input type="submit" value="Save">
-      </div>
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
     </form>
-    <div>
+    <!-- <div>
       <a href="{% url 'recipes-home' %}">Cancel</a>
-    </div>
+    </div> -->
   </div>
-{% endblock content %}
+{% endblock recipe-create %}

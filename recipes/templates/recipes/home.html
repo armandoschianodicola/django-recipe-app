@@ -17,9 +17,9 @@
     <div class="row">
       {% for recipe in recipes %}
       <div class="card m-2" style="width: 18rem">
-        <div class="card-body">
+        <div class="card-body d-flex flex-column">
           <h5 class="card-title">{{recipe.title}}</h5>
-            <a class="btn btn-primary" href="{% url 'recipes-detail' recipe.pk %}"
+            <a class="btn btn-primary mt-auto" href="{% url 'recipes-detail' recipe.pk %}"
               >View Recipe</a
             >
         </div>

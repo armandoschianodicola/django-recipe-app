@@ -8,8 +8,8 @@
         <div class="card-body">
             <h5 class="card-title">{{object.title}}</h5>
             by <p class="card-text">{{object.author}}</p>
-            <a href="recipes-update">Update</a>
-            <a href="recipes-delete">Delete</a>
+            <a href="{% url 'recipes-update' object.id %}">Update</a>
+            <a href="{% url 'recipes-delete' object.id %}">Delete</a>
         </div>
     </div>
     {% endif %}
