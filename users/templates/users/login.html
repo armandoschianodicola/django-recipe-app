@@ -1,5 +1,14 @@
-{% extends 'registration/base.html' %} {% block content %}
+{% extends 'registration/base.html' %} {% block login %}
 <div class="container">
+  {% if form.errors %} {% for field in form %} {% for error in field.errors %}
+  <div class="alert alert-danger">
+    <strong>{{ error|escape }}</strong>
+  </div>
+  {% endfor %} {% endfor %} {% for error in form.non_field_errors %}
+  <div class="alert alert-danger">
+    <strong>{{ error|escape }}</strong>
+  </div>
+  {% endfor %} {% endif %}
   <form method="post" class="form-signin">
     {% csrf_token %}
     <div class="form-group mb-4">
@@ -40,8 +49,15 @@
     <button class="btn btn-primary" type="submit">LOGIN</button>
     <div class="login-register">
       Don't have an account?
-      <a href="{% url 'user-register' %}">Register here!</a>
+      <a href="{% url 'user-signup' %}">Register here!</a>
     </div>
+    <!-- {% if form.errors %} 
+    {% for field in form %} 
+      {% for error in field.erros %}
+        <p>{{error}}</p>
+      {% endfor %} 
+    {% endfor %} 
+  {% endif %} -->
   </form>
 </div>
-{% endblock content %}
+{% endblock login %}

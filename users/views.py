@@ -6,7 +6,7 @@ from . import forms
 
 
 # Create your views here.
-def register(request):
+def signup(request):
 
     if request.method == 'POST':
         form = forms.UserRegistrationForm(request.POST)
@@ -18,7 +18,7 @@ def register(request):
 
     form = forms.UserRegistrationForm()
 
-    return render(request, 'users/register.html', {'form': form})
+    return render(request, 'users/signup.html', {'form': form})
 
 
 @login_required()

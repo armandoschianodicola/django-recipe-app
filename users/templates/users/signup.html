@@ -1,9 +1,8 @@
-{% extends 'recipes/base.html' %}
+{% extends 'registration/base.html' %}
 {% load crispy_forms_tags %}
 
-
-{% block content %}
-  <div>
+{% block signup %}
+  <div class="container">
     <form method="POST">
       {% csrf_token %}
       <fieldset>
@@ -15,7 +14,7 @@
       </div>
     </form>
     <div>
-      <a href="#">Already have an account? Log in here</a>
+      <a href="{% url 'login' %}">Already have an account? Log in here</a>
     </div>
   </div>
-{% endblock content %}
+{% endblock signup %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
@@ -17,7 +17,6 @@ def home(request):
 
 class RecipeDetailView(DetailView):
     model = models.Recipe
-
 
 class RecipeListView(ListView):
     model = models.Recipe
