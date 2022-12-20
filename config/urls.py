@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('recipes.urls')),
     path('accounts/login/', auth_views.LoginView.as_view(template_name='users/login.html')),
+    path('accounts/password_reset/', auth_views.PasswordResetView.as_view(template_name='users/password_reset.html')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('signup/', users_views.signup, name='user-signup'),
     path('profile/', users_views.profile, name='user-profile'),

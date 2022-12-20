@@ -20,8 +20,8 @@ def signup(request):
                                     )
             login(request, new_user)
             return redirect('recipes-home')
-
-    form = forms.UserRegistrationForm()
+    else:
+        form = forms.UserRegistrationForm()
 
     return render(request, 'users/signup.html', {'form': form})
 
