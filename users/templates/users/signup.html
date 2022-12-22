@@ -1,11 +1,11 @@
 {% extends 'registration/base.html' %} {% load crispy_forms_tags %} 
 {% block signup %}
 <div class="container">
-  <form method="POST" class="form-signin">
+  <form method="POST" class="form-center">
     {% csrf_token %}
     <div class="form-group mb-4">
       <fieldset>
-        <legend>Sign Up!!</legend>
+        <legend>Sign Up!</legend>
         {{ form|crispy }}
       </fieldset>
       <button class="btn btn-primary" type="submit">Sign Up</button>

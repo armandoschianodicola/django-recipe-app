@@ -9,7 +9,7 @@
     <strong>{{ error|escape }}</strong>
   </div>
   {% endfor %} {% endif %}
-  <form method="post" class="form-signin">
+  <form method="post" class="form-center">
     {% csrf_token %}
     <div class="form-group mb-4">
       <label class="form-label" for="username">Email Address</label>
@@ -51,13 +51,6 @@
       Don't have an account?
       <a href="{% url 'user-signup' %}">Register here!</a>
     </div>
-    <!-- {% if form.errors %} 
-    {% for field in form %} 
-      {% for error in field.erros %}
-        <p>{{error}}</p>
-      {% endfor %} 
-    {% endfor %} 
-  {% endif %} -->
   </form>
 </div>
 {% endblock login %}

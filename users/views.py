@@ -10,7 +10,7 @@ from . import forms
 def signup(request):
 
     if request.method == 'POST':
-        form = forms.UserRegistrationForm(request.POST)
+        form = forms.UserRegistrationForm(request.POST or None)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
@@ -23,7 +23,11 @@ def signup(request):
     else:
         form = forms.UserRegistrationForm()
 
-    return render(request, 'users/signup.html', {'form': form})
+    context = {
+        'form': form
+    }
+
+    return render(request, 'users/signup.html', context)
 
 
 @login_required()
