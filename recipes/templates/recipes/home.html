@@ -4,7 +4,6 @@
   {% if messages %} {% for message in messages %}
   <div class="alert alert-{{ message.tags}}">{{message}}</div>
   {% endfor %} {% endif %}
-  <h1>Recipes Home</h1>
 
   <div class="container">
     <div class="row">
@@ -13,8 +12,8 @@
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">{{recipe.title}}</h5>
             <a class="btn btn-primary mt-auto" href="{% url 'recipes-detail' recipe.pk %}"
-              >View Recipe</a
-            >
+              >Go to Recipe
+            </a>
         </div>
       </div>
       {% endfor %}

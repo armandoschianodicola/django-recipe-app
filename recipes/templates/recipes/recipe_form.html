@@ -7,10 +7,10 @@
     <form method="POST" class="card p-3 mt-5">
       {% csrf_token %}
       <fieldset>
-        <legend>Add Recipe</legend>
+        <legend>New Recipe</legend>
         {{ form|crispy }}
       </fieldset>
-        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        <button type="submit" class="btn btn-primary mt-3">Add</button>
     </form>
     <!-- <div>
       <a href="{% url 'recipes-home' %}">Cancel</a>

@@ -18,6 +18,7 @@ def home(request):
 class RecipeDetailView(DetailView):
     model = models.Recipe
 
+
 class RecipeListView(ListView):
     model = models.Recipe
     template_name = 'recipes/home.html'
