@@ -1,5 +1,5 @@
 {% extends 'registration/base.html' %} {% block login %}
-<div class="container">
+<div class="login-body">
   {% if form.errors %} {% for field in form %} {% for error in field.errors %}
   <div class="alert alert-danger">
     <strong>{{ error|escape }}</strong>
@@ -11,30 +11,29 @@
   {% endfor %} {% endif %}
   <form method="post" class="form-center">
     {% csrf_token %}
-    <div class="form-group mb-4">
-      <label class="form-label" for="username">Email Address</label>
+    <div class="input-container">
       <input
         type="text"
-        type="username"
-        class="form-control"
+        class="input-field"
         name="username"
         id="username"
         required
         aria-describedby="emailHelp"
-        placeholder="Enter email or username"
+        placeholder="Username"
       />
+      <i class='bx bx-user'></i>
     </div>
-    <div class="form-group mb-4">
-      <label class="form-label" for="password">Password</label>
+    <div class="input-container">
+      <!-- <label class="form-label" for="password">Password</label> -->
       <input
         type="password"
-        type="password"
-        class="form-control"
+        class="input-field"
         name="password"
         id="password"
         required
-        placeholder="enter password"
+        placeholder="Password"
       />
+      <i class='bx bx-lock-alt'></i>
     </div>
     <!-- <div class="form-check">
       <input
@@ -52,5 +51,6 @@
       <a href="{% url 'user-signup' %}">Register here!</a>
     </div>
   </form>
+  Image by <a href="https://pixabay.com/users/lukasbieri-4664461/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2378758">Lukas Bieri</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2378758">Pixabay</a>
 </div>
 {% endblock login %}

@@ -1,7 +1,45 @@
-.form-center {
+/* .form-center {
     max-width: 500px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+} */
+
+.form-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+
+}
+
+.login-body {
+    background-image: url('/static/users/img/mediterranean-cuisine-2378758_1920.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 100%;
+    min-width: 1024px;
+      
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+      
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.input-field {
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    height: 45px;
+    margin: 0 0 40px 45px;
+    padding: 0 0 0 15px;
+    background: rgba(225, 225, 225, 0.7);
 }
