@@ -1,17 +1,15 @@
-{% extends 'recipes/navbar.html' %}
-{% block content %}
-<h1>Recipe # {{object.id}} </h1>
-<p>{{object.updated_at|date:"d F, Y"}}</p>
+{% extends 'recipes/navbar.html' %} {% block content %}
 <div>
-    {%if object.author == user or user.is_stagg %}
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">{{object.title}}</h5>
-            by <p class="card-text">{{object.author}}</p>
-            <a href="{% url 'recipes-update' object.id %}">Update</a>
-            <a href="{% url 'recipes-delete' object.id %}">Delete</a>
-        </div>
+  <div class="card" style="width: 18rem">
+    <div class="card-body">
+      <h5 class="card-title">{{object.title}}</h5>
+      <p class="card-text">created on {{object.created|date:"d F, Y"}}</p>
+      <p class="card-text">by {{object.author}}</p>
+      {%if object.author == user or user.is_stagg %}
+      <a href="{% url 'recipes-update' object.id %}">Update</a>
+      <a href="{% url 'recipes-delete' object.id %}">Delete</a>
+      {% endif %}
     </div>
-    {% endif %}
+  </div>
 </div>
 {% endblock content %}
