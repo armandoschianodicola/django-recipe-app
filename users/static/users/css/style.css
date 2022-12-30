@@ -1,10 +1,10 @@
-/* .form-center {
+.form-center {
     max-width: 500px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-} */
+}
 
 .form-box {
     display: flex;

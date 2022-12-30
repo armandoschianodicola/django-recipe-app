@@ -27,7 +27,7 @@ class RecipeListView(ListView):
 
 class RecipeCreateView(LoginRequiredMixin, CreateView):
     model = models.Recipe
-    fields = ['title', 'description']
+    fields = ['title']
 
     def form_valid(self, form):
 
@@ -58,6 +58,11 @@ class RecipeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def test_func(self):
         recipe = self.get_object()
         return self.request.user == recipe.author
+
+
+class IngredientCreateView(LoginRequiredMixin, CreateView):
+    model = models.Ingredient
+    fields = ['name']
 
 
 def about(request):

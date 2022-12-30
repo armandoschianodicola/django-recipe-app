@@ -7,7 +7,7 @@ class RecipeIngredientInLine(admin.TabularInline):
 class RecipeAdmin(admin.ModelAdmin):
     inlines = [RecipeIngredientInLine]
     extra = 0
-    readonly_fields = ['created_at', 'updated_at']
+    readonly_fields = ['created', 'modified']
 
 
 # Register your models here.

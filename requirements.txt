@@ -1,5 +1,6 @@
 Django~=3.2.10
 djangorestframework==3.11.2
+django-extensions
 django-crispy-forms
 crispy-bootstrap5
 fontawesomefree==6.0.0
