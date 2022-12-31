@@ -9,6 +9,13 @@
       <a href="{% url 'recipes-update' object.id %}">Update</a>
       <a href="{% url 'recipes-delete' object.id %}">Delete</a>
       {% endif %}
+      <h5>Ingredients</h5>
+      <div>
+        {% for form in formset %}
+        {{ form.as_p }}<br><br>
+      {% endfor %}
+      </div>
+      
     </div>
   </div>
 </div>

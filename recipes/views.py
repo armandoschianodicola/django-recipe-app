@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
+from django.forms import modelformset_factory
 
 from . import models
 
@@ -35,6 +36,12 @@ class RecipeCreateView(LoginRequiredMixin, CreateView):
 
         return super().form_valid(form)
 
+    def get_context_data(self, **kwargs):
+
+        context = super().get_context_data(**kwargs)
+
+        return context
+
 
 class RecipeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = models.Recipe
@@ -49,6 +56,18 @@ class RecipeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         form.instance.author = self.request.user
 
         return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+
+        context = super().get_context_data(**kwargs)
+        recipe_ingredient_formset = modelformset_factory(
+            models.RecipeIngredient,
+            fields=('ingredient', 'quantity', 'unit'),
+            extra=2
+            )
+        context['formset'] = recipe_ingredient_formset(queryset=self.object.recipeingredient_set.all())
+
+        return context
 
 
 class RecipeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
