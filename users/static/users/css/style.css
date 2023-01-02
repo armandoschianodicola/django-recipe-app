@@ -32,9 +32,8 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    min-height: 100%;
-    min-width: 1024px;
     display: flex;
+    min-height: 100%;
     align-items: center;
     justify-content: center;
       

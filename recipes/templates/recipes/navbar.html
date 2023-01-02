@@ -24,17 +24,22 @@
           Home
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'recipes-create' %}">
-          <i class="fa fa-plus" aria-hidden="true"></i>
-          Add a Recipe
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdownMenuLink"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        Add
         </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'ingredient-create' %}">
-          <i class="fa fa-plus" aria-hidden="true"></i>
-          Add an Ingredient
-        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'recipes-create' %}">Recipe</a>
+          <a class="dropdown-item" href="{% url 'ingredient-create' %}">Ingredient</a>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'recipes-about' %}">About</a>
