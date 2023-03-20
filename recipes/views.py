@@ -4,7 +4,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.forms import modelformset_factory
 
+from rest_framework import generics
+
 from . import models
+from . import serializers
 
 
 def home(request):
@@ -16,8 +19,25 @@ def home(request):
     return render(request, "recipes/home.html", context=context)
 
 
+class RecipeView(generics.CreateAPIView):
+    queryset = models.Recipe.objects.all()
+    serializer_class = serializers.RecipeSerializer
+
+
 class RecipeDetailView(DetailView):
     model = models.Recipe
+
+    def get_context_data(self, **kwargs):
+
+        context = super().get_context_data(**kwargs)
+        recipe_ingredient_formset = modelformset_factory(
+            models.RecipeIngredient,
+            fields=('ingredient', 'quantity', 'unit'),
+            extra=2
+            )
+        context['formset'] = recipe_ingredient_formset(queryset=self.object.recipeingredient_set.all())
+
+        return context
 
 
 class RecipeListView(ListView):

@@ -3,7 +3,8 @@ from django.contrib.auth.decorators import login_required
 from . import views
 
 urlpatterns = [
-    path('', login_required(views.RecipeListView.as_view()), name='recipes-home'),
+    # path('', views.RecipeListView.as_view(), name='recipes-home'),
+    path('', views.RecipeView.as_view()),
     path('recipe/<int:pk>/', views.RecipeDetailView.as_view(), name='recipes-detail'),
     path('recipe/create/', views.RecipeCreateView.as_view(), name='recipes-create'),
     path('recipe/<int:pk>/update/', views.RecipeUpdateView.as_view(), name='recipes-update'),

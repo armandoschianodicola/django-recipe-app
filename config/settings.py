@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'rest_framework',
+
     'crispy_forms',
     'crispy_bootstrap5',
     'fontawesomefree',
@@ -138,3 +140,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 LOGIN_REDIRECT_URL = 'recipes-home'
 LOGIN_URL = 'login'
+
+CORS_ORIGIN_WHITELIST = [
+     'http://localhost:3000'
+]
