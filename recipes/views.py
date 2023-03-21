@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.forms import modelformset_factory
 
-from rest_framework import generics
+from rest_framework import generics, permissions
 
 from . import models
 from . import serializers
@@ -20,6 +20,10 @@ def home(request):
 
 
 class RecipeView(generics.CreateAPIView):
+    queryset = models.Recipe.objects.all()
+    serializer_class = serializers.RecipeSerializer
+
+class RecipeAPIListView(generics.ListAPIView):
     queryset = models.Recipe.objects.all()
     serializer_class = serializers.RecipeSerializer
 

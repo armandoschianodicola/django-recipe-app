@@ -142,5 +142,6 @@ LOGIN_REDIRECT_URL = 'recipes-home'
 LOGIN_URL = 'login'
 
 CORS_ORIGIN_WHITELIST = [
-     'http://localhost:3000'
+     'http://localhost:3000',
+     'http://localhost:3001',
 ]
