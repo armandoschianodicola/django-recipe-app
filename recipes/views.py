@@ -3,6 +3,8 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.forms import modelformset_factory
+from rest_framework.response import Response
+from rest_framework import status
 
 from rest_framework import generics, permissions
 
@@ -19,13 +21,21 @@ def home(request):
     return render(request, "recipes/home.html", context=context)
 
 
-class RecipeView(generics.CreateAPIView):
+class RecipeDetailAPIView(generics.CreateAPIView):
     queryset = models.Recipe.objects.all()
-    serializer_class = serializers.RecipeSerializer
+    serializer = serializers.RecipeSerializer
 
-class RecipeAPIListView(generics.ListAPIView):
-    queryset = models.Recipe.objects.all()
-    serializer_class = serializers.RecipeSerializer
+class RecipeListAPIView(generics.ListAPIView):
+    # queryset = models.Recipe.objects.all()
+    # serializer = serializers.RecipeSerializer
+
+    def get(self, request, *args, **kwargs):
+        '''
+        List all the todo items for given requested user
+        '''
+        recipes = models.Recipe.objects.all()
+        serializer = serializers.RecipeSerializer(recipes, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 class RecipeDetailView(DetailView):
